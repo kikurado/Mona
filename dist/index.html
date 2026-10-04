@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#160d0a">
+  <meta name="description" content="بابُ قصر، ومقصورةُ مسرح، وقصيدةُ ميلاد.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ليلةٌ لكِ</title>
+  <link rel="icon" href="assets/seal.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/Amiri-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/palace-door.png" as="image">
+  <link rel="preload" href="assets/theater.png" as="image">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" type="module"></script>
+</head>
+<body class="loading">
+  <audio id="background-music" src="assets/background-music.mp3" preload="auto" loop hidden></audio>
+  <main id="experience" aria-label="عرض قصيدة الميلاد">
+    <section class="theater scene" aria-label="المسرح من المقصورة العلوية اليمنى" aria-hidden="true">
+      <div class="theater-canvas art-canvas" aria-hidden="true">
+        <img class="architecture" src="assets/theater.png" alt="" fetchpriority="high">
+        <div class="stage-curtains">
+          <div class="curtain-mask">
+            <div class="curtain curtain-left"><img src="assets/velvet.png" alt=""></div>
+            <div class="curtain curtain-right"><img src="assets/velvet.png" alt=""></div>
+            <div class="curtain-shadow"></div>
+          </div>
+        </div>
+        <div class="dedication-stage" aria-hidden="true">
+          <div class="verse-ornament"><svg viewBox="0 0 80 30"><path d="M40 24V6M40 20C26 20 25 9 16 12c-5 2-1 9 8 6M40 20C54 20 55 9 64 12c5 2 1 9-8 6M40 12C29 8 34 1 40 3c6-2 11 5 0 9"/></svg></div>
+          <p id="dedication-line" class="poem-line dedication-line" dir="rtl">هٰذِهِ الْقَصِيدَةُ مُهْدَاةٌ لَكِ</p>
+          <div class="verse-rule"></div>
+        </div>
+        <div class="poem-stage">
+          <div class="verse-ornament" aria-hidden="true"><svg viewBox="0 0 80 30"><path d="M40 24V6M40 20C26 20 25 9 16 12c-5 2-1 9 8 6M40 20C54 20 55 9 64 12c5 2 1 9-8 6M40 12C29 8 34 1 40 3c6-2 11 5 0 9"/></svg></div>
+          <p id="poem-line" class="poem-line" dir="rtl"></p>
+          <div class="verse-rule" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="theater-atmosphere" aria-hidden="true"></div>
+    </section>
+
+    <section class="entrance scene" aria-label="باب القصر">
+      <div class="palace-canvas art-canvas" aria-hidden="true">
+        <img class="architecture" src="assets/palace-door.png" alt="" fetchpriority="high">
+        <div class="door-aperture"><img src="assets/theater.png" alt=""></div>
+        <div class="door-leaf door-left"><img src="assets/palace-door.png" alt=""></div>
+        <div class="door-leaf door-right"><img src="assets/palace-door.png" alt=""></div>
+        <div class="door-seam"></div>
+      </div>
+      <div class="entrance-atmosphere" aria-hidden="true"></div>
+      <div class="invitation">
+        <span class="invitation-kicker">عَرْضٌ خَاصّ</span>
+        <h1>ليلةٌ لكِ</h1>
+      </div>
+      <div class="door-action">
+        <button id="enter" class="door-button" type="button" aria-label="افتحي باب القصر وابدئي العرض" disabled>
+          <span class="seal-ring" aria-hidden="true"></span>
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12c-5 7-11 8-11 15 0 5 4 7 7 5-7 5-9 12-6 15 4-2 7-7 10-11 3 4 6 9 10 11 3-3 1-10-6-15 3 2 7 0 7-5 0-7-6-8-11-15Z"/><path d="M16 36c-6-8-12-3-8 3 3 4 7 2 9 6M48 36c6-8 12-3 8 3-3 4-7 2-9 6M24 49h16M26 53h12"/></svg>
+        </button>
+        <p id="entry-caption">لحظةٌ، نُهيّئ المسرح…</p>
+        <span class="entry-rule" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <div class="performance-ui" inert>
+      <div class="performance-heading" aria-hidden="true"><span>ليلةٌ لكِ</span><i></i></div>
+      <span id="playback-status" class="playback-status" role="status"></span>
+      <nav class="controls" aria-label="التحكم في العرض">
+        <button id="sound" class="control" type="button" aria-label="كتم الصوت" aria-pressed="false" title="الصوت">
+          <svg class="sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5ZM15 8c3 2 3 6 0 8M18 5c5 4 5 10 0 14"/></svg>
+          <svg class="sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5ZM16 9l5 6M21 9l-5 6"/></svg>
+        </button>
+        <button id="pause" class="control" type="button" aria-label="إيقاف العرض مؤقتًا" aria-pressed="false" title="إيقاف مؤقت">
+          <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+          <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z"/></svg>
+        </button>
+        <button id="read" class="control" type="button" aria-label="قراءة القصيدة كاملة" title="القصيدة كاملة"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-3-2-6-2-9-1v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Zm0 0v14"/></svg></button>
+        <button id="fullscreen" class="control" type="button" aria-label="ملء الشاشة" title="ملء الشاشة"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5"/></svg></button>
+      </nav>
+      <button id="encore" type="button" class="encore" aria-label="أعيدي العرض من باب القصر">أعيدي العرض من البداية <span aria-hidden="true">↺</span></button>
+      <div class="progress-track" role="progressbar" aria-label="تقدّم القصيدة" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill"></div></div>
+    </div>
+    <span id="live-line" class="sr-only" aria-live="polite" aria-atomic="true"></span>
+  </main>
+
+  <dialog id="poem-dialog" aria-labelledby="poem-dialog-title">
+    <div class="poem-paper">
+      <button id="close-poem" class="close-poem" type="button" aria-label="إغلاق القصيدة">×</button>
+      <span class="paper-ornament" aria-hidden="true"><svg viewBox="0 0 80 30"><path d="M40 24V6M40 20C26 20 25 9 16 12c-5 2-1 9 8 6M40 20C54 20 55 9 64 12c5 2 1 9-8 6M40 12C29 8 34 1 40 3c6-2 11 5 0 9"/></svg></span>
+      <h2 id="poem-dialog-title">القصيدة</h2>
+      <div id="complete-poem" dir="rtl"></div>
+      <div class="paper-rule" aria-hidden="true"></div>
+    </div>
+  </dialog>
+  <noscript><div class="noscript-note">هذا العرض يحتاج إلى تفعيل JavaScript في المتصفح.</div></noscript>
+</body>
+</html>
