@@ -27,5 +27,5 @@ export const experience = {
   invitation: "اضغطي لفتح الباب",
   fadeMilliseconds: 1150,
   visibleLineMilliseconds: 4000,
-  finalHoldMilliseconds: 14000
+  finalHoldMilliseconds: 5150
 };
